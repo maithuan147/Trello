@@ -13,10 +13,11 @@
 
 Route::get('/', function () {
     return view('users.sign_up');
-});
+})->name('login');
 Route::get('index', function () {
     return view('index');
 });
 Route::resource('listtask', 'ListtaskController');
 Route::resource('user', 'UserController');
+Route::resource('task', 'TaskController');
 

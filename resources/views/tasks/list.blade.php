@@ -42,7 +42,7 @@
                     <button class="btn btn-primary btn-show-table-options">Filters</button>
                 </div>
                 <div class="col-sm-6 justify-content-end display-flex">
-                    <a href="{{ route('listtask.create') }}" class="bg-36c6d3 px-10 mr-10 color-white"><i class="fa fa-plus"></i> Create</a>
+                    <a href="{{ route('task.create') }}" class="bg-36c6d3 px-10 mr-10 color-white"><i class="fa fa-plus"></i> Create</a>
                     <a href="" class="bg-36c6d3 px-10 color-white"><i class="fas fa-sync"></i> Reload</a>			
                 </div>
             </div>
@@ -50,30 +50,31 @@
         <table class="table table-striped mx-15 mb-0 ">
             <tr class="bg-fbfcfd color-AFAFAF">
                 <th width="5%" class="text-center">ID</th>
-                <th width="35%" >TITLE</th>
-                <th width="22%" class="text-center">CREATED_AT</th>
-                <th width="22%" class="text-center">UPDATED_AT</th>
-                <th width="16%" class="text-center">OPERATIONS</th>
+                <th width="30%" class="text-center">DESCRIPTION</th>
+                <th width="25%" class="text-center">CONTENT</th>
+                <th width="20%" class="text-center">CREATED_AT</th>
+                <th width="5%" class="text-center">UPDATED_AT</th>
+                <th width="15%" class="text-center">OPERATIONS</th>
             </tr>
-            @foreach ($listtasks as $list)
-            <tr class="child">
-                <td class="text-center vertical-align-middle">{{ $list->id }}</td>
-                <td class="color-337ab7 vertical-align-middle">{{ $list->title }}</td>
-                <td class="text-center vertical-align-middle">{{ $list->created_at->toDateString() }}</td>
-                <td class="text-center vertical-align-middle">{{ $list->updated_at->toDateString() }}</td>
-                <td class="text-center vertical-align-middle">
-                    <a href="{{ route('listtask.edit', $list) }}" class="btn btn-primary font-size-15"><i class="fa fa-edit"></i></a>
-                    <form action="{{ route('listtask.destroy',$list) }}" method="post" class="display-inline-block">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn bg-dc3545 color-white font-size-15"><i class="fa fa-trash"></i></button>
-                    </form>
-                </td>
-                   
+            @foreach ($task as $tasks)
+                <tr class="child">
+                    <td class="text-center vertical-align-middle">{{ $tasks->id }}</td>
+                    <td class="text-center vertical-align-middle">{{ $tasks->description }}</td>
+                    <td class="text-center vertical-align-middle">{{ $tasks->content }}</td>
+                    <td class="text-center vertical-align-middle">{{ $tasks->created_at->toDateString() }}</td>
+                    <td class="text-center vertical-align-middle">{{ $tasks->updated_at->toDateString()  }}</td>
+                    <td class="text-center vertical-align-middle"> 
+                        <a href="{{ route('task.edit', $tasks) }}" class="btn btn-primary font-size-15"><i class="fa fa-edit"></i></a>
+                        <form action="{{ route('task.destroy',$tasks) }}" method="post" class="display-inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn bg-dc3545 color-white font-size-15"><i class="fa fa-trash"></i></button>
+                        </form>
+                    </td>
             </tr>
             @endforeach
         </table>
-        {{ $listtasks->links() }}
+        {{ $task->links() }}
         </div>
     </div>
     
