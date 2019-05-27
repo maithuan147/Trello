@@ -14,6 +14,13 @@ class UserController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
+=======
+        $user = user::paginate(5);
+        $data = compact('user');
+        // dd('user');
+        return view('users.list',$data);
+>>>>>>> 15dc1e0fe3603e75e640e5043029c8d0a31d9340
     }
     /**
      * Show the form for creating a new resource.
@@ -22,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.sing_up');
+        return view('users.create');
     }
 
     /**
@@ -33,10 +40,10 @@ class UserController extends Controller
      */
     public function store(Request $request, user $user)
     {
-        $data = $request->all();
-        $user->fill($data);
-        $user->save();
-        return view('users.sing_in');
+       $data = $request->all();
+       $user->fill($data);
+       $user->save();
+       return redirect()->route('user.index');
     }
 
     /**
@@ -58,7 +65,8 @@ class UserController extends Controller
      */
     public function edit(user $user)
     {
-        //
+        $data = compact('user');
+        return view('users.edit', $data);
     }
 
     /**
@@ -70,7 +78,10 @@ class UserController extends Controller
      */
     public function update(Request $request, user $user)
     {
-        //
+        $data = $request->all();
+        $user->fill($data);
+        $user->save();
+        return redirect()->route('user.index');
     }
 
     /**
@@ -81,6 +92,7 @@ class UserController extends Controller
      */
     public function destroy(user $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('user.index');
     }
 }

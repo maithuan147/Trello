@@ -42,7 +42,7 @@
                     <button class="btn btn-primary btn-show-table-options">Filters</button>
                 </div>
                 <div class="col-sm-6 justify-content-end display-flex">
-                    <a href="{{ route('listtask.create') }}" class="bg-36c6d3 px-10 mr-10 color-white"><i class="fa fa-plus"></i> Create</a>
+                    <a href="{{ route('user.create') }}" class="bg-36c6d3 px-10 mr-10 color-white"><i class="fa fa-plus"></i> Create</a>
                     <a href="" class="bg-36c6d3 px-10 color-white"><i class="fas fa-sync"></i> Reload</a>			
                 </div>
             </div>
@@ -50,30 +50,43 @@
         <table class="table table-striped mx-15 mb-0 ">
             <tr class="bg-fbfcfd color-AFAFAF">
                 <th width="5%" class="text-center">ID</th>
-                <th width="35%" >TITLE</th>
-                <th width="22%" class="text-center">CREATED_AT</th>
-                <th width="22%" class="text-center">UPDATED_AT</th>
+                <th width="15%" class="text-center" >IMAGE</th>
+                <th width="27%" class="text-center">USERNAME</th>
+                <th width="32%" class="text-center">EMAIL</th>
+                <th width="5%" class="text-center">STATUS</th>
                 <th width="16%" class="text-center">OPERATIONS</th>
             </tr>
-            @foreach ($listtasks as $list)
-            <tr class="child">
-                <td class="text-center vertical-align-middle">{{ $list->id }}</td>
-                <td class="color-337ab7 vertical-align-middle">{{ $list->title }}</td>
-                <td class="text-center vertical-align-middle">{{ $list->created_at->toDateString() }}</td>
-                <td class="text-center vertical-align-middle">{{ $list->updated_at->toDateString() }}</td>
-                <td class="text-center vertical-align-middle">
-                    <a href="{{ route('listtask.edit', $list) }}" class="btn btn-primary font-size-15"><i class="fa fa-edit"></i></a>
-                    <form action="{{ route('listtask.destroy',$list) }}" method="post" class="display-inline-block">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn bg-dc3545 color-white font-size-15"><i class="fa fa-trash"></i></button>
-                    </form>
-                </td>
-                   
+            @foreach ($user as $users)
+                {{-- @if ($users->status == 1)
+                    $status = 'On';
+                @else
+                     $status = 'Off';  
+                @endif --}}
+                @php
+                    if($users->status == 1){
+                        $status = 'Active';
+                    }else{
+                        $status = 'Off'; 
+                    }
+                @endphp
+                <tr class="child">
+                    <td class="text-center vertical-align-middle">{{ $users->id }}</td>
+                    <td class="text-center vertical-align-middle"><img style="width:50px;" src="{{  asset($users->image)  }}" alt="#"></td>
+                    <td class="text-center vertical-align-middle">{{ $users->username }}</td>
+                    <td class="text-center color-337ab7 vertical-align-middle">{{ $users->email }}</td>
+                    <td class="text-center vertical-align-middle bg-36c6d3 custom-opera">{{ $status  }}</td>
+                    <td class="text-center vertical-align-middle"> 
+                        <a href="{{ route('user.edit', $users) }}" class="btn btn-primary font-size-15"><i class="fa fa-edit"></i></a>
+                        <form action="{{ route('user.destroy',$users) }}" method="post" class="display-inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn bg-dc3545 color-white font-size-15"><i class="fa fa-trash"></i></button>
+                        </form>
+                    </td>
             </tr>
             @endforeach
         </table>
-        {{ $listtasks->links() }}
+        {{ $user->links() }}
         </div>
     </div>
     

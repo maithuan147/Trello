@@ -27,7 +27,7 @@
             <li class="active">Simple</li>
         </ol>
         </section>
-        <form method="POST" action="{{ route('listtask.store') }}" class="mx-15 mt-20">
+        <form method="POST" action="{{ route('task.store') }}" class="mx-15 mt-20">
             @csrf
             @method('POST')
             <div class="row">
@@ -35,8 +35,29 @@
                     <div class="main-form bg-white pxy-15">
                         <div class="form-body row">
                             <div class="form-group col-md-6">
-                                <label for="first_name" class="control-label required" aria-required="true">Name<span style="color: red"> *</span></label>
-                                <input class="form-control" data-counter="30" name="title" type="text" required="">
+                                <label for="first_name" class="control-label required" aria-required="true">Image<span style="color: red"> *</span></label>
+                                <input class="form-control" data-counter="30" name="image" type="text" required="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="first_name" class="control-label required" aria-required="true">UserName<span style="color: red"> *</span></label>
+                                <input class="form-control" data-counter="30" name="username" type="text" required="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="first_name" class="control-label required" aria-required="true">Email<span style="color: red"> *</span></label>
+                                <input class="form-control" data-counter="30" name="email" type="email" required="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                    <label for="first_name" class="control-label required" aria-required="true">Password<span style="color: red"> *</span></label>
+                                    <input class="form-control" data-counter="30" name="password" type="password" required="">
+                                </div>
+                            <div class="col-md-12">
+                                <label for="role_id" class="control-label">Status<span style="color: red"> *</span></label>
+                                <div class="ui-select-wrapper">
+                                    <select class="form-control  bg-1111 roles-list ui-select ui-select" id="role_id" name="status">
+                                        <option value="1">Active</option>
+                                        <option value="0">Off</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -64,4 +85,17 @@
         </form>
     </div>
 @endsection
+@push('head')
+    <script src="{{ asset('js/jquery/jquery.min.js')}}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{{ asset('js/jquery-ui/jquery-ui.min.js')}}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+    $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="{{ asset('js/bootstrap/bootstrap.min.js')}}"></script>
+    <script src="{{ asset('js/dist/adminlte.min.js')}}"></script>
+@endpush
+
 

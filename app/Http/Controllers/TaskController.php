@@ -14,7 +14,10 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $task = task::paginate(5);
+        $data = compact('task');
+        // dd('user');
+        return view('tasks.list',$data);
     }
 
     /**
@@ -24,7 +27,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create');
     }
 
     /**
