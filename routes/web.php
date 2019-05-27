@@ -12,13 +12,8 @@
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
     return view('welcome');
 });
-=======
-    return view('users.sign_up');
-})->name('login');
->>>>>>> 15dc1e0fe3603e75e640e5043029c8d0a31d9340
 Route::get('index', function () {
     return view('index');
 });

@@ -14,13 +14,6 @@ class UserController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-=======
-        $user = user::paginate(5);
-        $data = compact('user');
-        // dd('user');
-        return view('users.list',$data);
->>>>>>> 15dc1e0fe3603e75e640e5043029c8d0a31d9340
     }
     /**
      * Show the form for creating a new resource.
@@ -40,10 +33,10 @@ class UserController extends Controller
      */
     public function store(Request $request, user $user)
     {
-       $data = $request->all();
-       $user->fill($data);
-       $user->save();
-       return redirect()->route('user.index');
+        $data = $request->all();
+        $user->fill($data);
+        $user->save();
+        return redirect()->route('user.index');
     }
 
     /**

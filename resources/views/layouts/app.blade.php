@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<<<<<<< HEAD
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -16,14 +15,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-=======
-    <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <!-- Bootstrap 3.3.7 -->
-    <link href="https://unpkg.com/ionicons@4.5.5/dist/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
->>>>>>> 15dc1e0fe3603e75e640e5043029c8d0a31d9340
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -52,7 +43,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-<<<<<<< HEAD
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -74,15 +64,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-=======
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="{{ url('/')}}" class="btn btn-default btn-flat">Sign out</a>
->>>>>>> 15dc1e0fe3603e75e640e5043029c8d0a31d9340
                                 </div>
                             </li>
                         @endguest
@@ -90,57 +71,6 @@
                 </div>
             </div>
         </nav>
-<<<<<<< HEAD
-=======
-    </header>
-    <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-              <!-- Sidebar user panel -->
-              <div class="user-panel">
-                <div class="pull-left image">
-                  <img src="{{ asset('img/user2.jpg') }}" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                  <p>Alexander Pierce</p>
-                  <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-              </div>
-             
-              <!-- /.search form -->
-              <!-- sidebar menu: : style can be found in sidebar.less -->
-              <ul class="sidebar-menu" data-widget="tree">
-                <li class="active">
-                <a href="{{ url('index') }}">
-                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                  </a>
-                </li> 
-                <li class="">            
-                  <a href="{{ url('listtask') }}">
-                    <i class="fa fa-pie-chart"></i> <span>Lists</span>
-                  </a>
-                </li> 
-                <li class="">            
-                    <a href="{{ url('user') }}">
-                        <i class="fa fa-laptop"></i> <span>Users</span>
-                    </a>
-                    </li> 
-                <li class="treeview">
-                  <a href="#">
-                    <i class="fa fa-edit"></i> <span>Tasks</span>
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="{{ url('task') }}"><i class="fa fa-circle-o"></i> Tasks</a></li>
-                    <li><a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Comments</a></li>
-                    <li><a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Attachments</a></li>
-                    <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Checklists</a></li>
-                    <li><a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Labels</a></li>
-                  </ul>
-                </li>
->>>>>>> 15dc1e0fe3603e75e640e5043029c8d0a31d9340
 
         <main class="py-4">
             @yield('content')
