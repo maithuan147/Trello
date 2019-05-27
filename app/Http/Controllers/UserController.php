@@ -14,7 +14,6 @@ class UserController extends Controller
      */
     public function index()
     {
-        
     }
     /**
      * Show the form for creating a new resource.
@@ -32,7 +31,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , user $user)
+    public function store(Request $request, user $user)
     {
         $data = $request->all();
         $user->fill($data);

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('users.sign_up');
+    return view('welcome');
 });
 Route::get('index', function () {
     return view('index');
@@ -20,3 +20,7 @@ Route::get('index', function () {
 Route::resource('listtask', 'ListtaskController');
 Route::resource('user', 'UserController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
